@@ -1,55 +1,61 @@
 <template>
-    <div class="max-w-[800px] mx-auto p-8">
-        <h1 class="text-5xl font-bold mb-5">{{ meal.strMeal }}</h1>
-        <img :src="meal.strMealThumb" :alt="meal.strMeal" class="max-w-800">
-        <div class="grid grid-cols-1 sm:grid-cols-3 text-xl  py-2">
-            <div>
-                <strong class="font-bold">Category:</strong> {{ meal.strCategory }}
-            </div>
-            <div>
-                <strong class="font-bold">Area:</strong> {{ meal.strArea }}
-            </div>
-            <div>
-                <strong class="font-bold">Tags:</strong> {{ meal.strTags }}
-            </div>
-        </div>
+    <div class="max-w-full mx-auto p-8">
         
-        <div class="my-3">
-            {{ meal.strInstructions }}
-        </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-                <h2 class="text-2xl font-semibold mb-2">Ingredients</h2>
-                 <ul>
-                    <template v-for="(elem, ind) of 20">
-                        <li v-if="meal[`strIngredient${ind + 1}`]">
-                        {{ ind + 1 }}. {{ meal[`strIngredient${ind + 1}`] }}
-                        </li>
-                    </template>
-                 </ul>
+                <h1 class="text-5xl font-bold mb-5">{{ meal.strMeal }}</h1>
+                <img :src="meal.strMealThumb" :alt="meal.strMeal" class="max-w-500 rounded-xl border-4 border-purple-400/25">
             </div>
             <div>
-                <h2 class="text-2xl font-semibold mb-2" >Measures</h2>
-                <ul>
-                    <template v-for="(el, ind) of 20">
-                        <li v-if="meal[`strMeasure${ind + 1}`]">
-                        {{ ind + 1 }}. {{ meal[`strMeasure${ind + 1}`] }}
-                        </li>
-                    </template>
-                </ul>
-            </div> 
-            <div class="mt-8">
-                <YouTubeButton :href="meal.strYoutube">Go to YouTube</YouTubeButton>
-                <a 
-                    :href="meal.strSource" 
-                    target="_blank" 
-                    class="px-5 py-2 my-3 mr-2 border-2  border-purple-400 text-purple-500 hover:bg-gradient-to-r from-indigo-300 via-purple-400 to-purple-300  hover:text-white hover:shadow-lg hover:shadow-purple-500/50 hover:border-purple-200 rounded-lg transition-colors"
-                >
-                    View Original Source
-                </a>
+                <div class="grid grid-cols-1 sm:grid-cols-1 text-xl  py-2">
+                    <div>
+                        <strong class="font-bold">Category:</strong> {{ meal.strCategory }}
+                    </div>
+                    <div>
+                        <strong class="font-bold">Area:</strong> {{ meal.strArea }}
+                    </div>
+                    <div>
+                        <strong class="font-bold">Tags:</strong> {{ meal.strTags }}
+                    </div>
+                </div>
+                
+                <div class="my-3">
+                    {{ meal.strInstructions }}
+                </div>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-2 w-200">
+                    <div>
+                        <h2 class="text-2xl font-semibold mb-2">Ingredients</h2>
+                        <ul>
+                            <template v-for="(elem, ind) of 20">
+                                <li v-if="meal[`strIngredient${ind + 1}`]" class="text-sm">
+                                {{ ind + 1 }}. {{ meal[`strIngredient${ind + 1}`] }}
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2" >Measures</h3>
+                        <ul>
+                            <template v-for="(el, ind) of 20">
+                                <li v-if="meal[`strMeasure${ind + 1}`]" class="text-sm">
+                                {{ ind + 1 }}. {{ meal[`strMeasure${ind + 1}`] }}
+                                </li>
+                            </template>
+                        </ul>
+                    </div> 
+                </div>
+                <div class="my-8">
+                        <YouTubeButton :href="meal.strYoutube">Go to YouTube</YouTubeButton>                    <a 
+                        :href="meal.strSource" 
+                        target="_blank" 
+                        class="px-5 py-2 my-3 mr-2 border-2  border-purple-400 text-purple-500 hover:bg-gradient-to-r from-indigo-300 via-purple-400 to-purple-300  hover:text-white hover:shadow-lg hover:shadow-purple-500/50 hover:border-purple-200 rounded-lg transition-colors"
+                    >
+                        View Original Source
+                    </a>
+                </div>
             </div>
-        </div>
+        </div>    
     </div>
 </template>
 
