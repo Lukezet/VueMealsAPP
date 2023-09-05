@@ -12,7 +12,7 @@
                 class="inline-flex items-center px-2 h-full text-white transition-colors hover:bg-purple-400 hover:hover:text-gray-900">
                 Meals by Letter
             </router-link>
-            <router-link :to="{ name: 'byIngredient' }"
+            <router-link :to="{ name: 'ingredients' }"
                 class="inline-flex items-center px-2 h-full text-white transition-colors hover:bg-purple-400 hover:hover:text-gray-900">
                 Meals by Ingredients
             </router-link>

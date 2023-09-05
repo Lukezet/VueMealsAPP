@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 
-                <div class="my-3">
+                <div class="my-3 text-xs">
                     {{ meal.strInstructions }}
                 </div>
                 
@@ -38,7 +38,7 @@
                         <h3 class="text-xl font-semibold mb-2" >Measures</h3>
                         <ul>
                             <template v-for="(el, ind) of 20">
-                                <li v-if="meal[`strMeasure${ind + 1}`]" class="text-sm">
+                                <li v-if="meal[`strMeasure${ind + 1}`] !== '' && meal[`strMeasure${ind + 1}`] !== ' '" class="text-sm">
                                 {{ ind + 1 }}. {{ meal[`strMeasure${ind + 1}`] }}
                                 </li>
                             </template>
